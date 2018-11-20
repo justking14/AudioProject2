@@ -1,0 +1,8 @@
+Uses Chunity I created a game about rain drops.
+
+As the drops create waves along the water, the player must use their eyes and ears to avoid the ripples.
+
+Use WASD to move the player, avoid the waves, and keep yourself from falling out of the water.
+
+Also, I created 100 waves manually instead of instantiating, as this proved very difficult to do with the chuck sub instances
+requiring a call to the chuck main instance.
