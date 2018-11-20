@@ -20,14 +20,12 @@ public class PlayerController : MonoBehaviour
 		winText.text = "";
 
 	}
-	void OnTriggerEnter( Collider other )
-	{		
-if( other.gameObject.CompareTag( "Respawn" ) ){
+	void OnTriggerEnter( Collider other ){		
 
- SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-}
-
-
+    if( other.gameObject.CompareTag( "Respawn" ) ){
+        print("yeah");
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+    }
 		if( other.gameObject.CompareTag( "Pick Up" ) )
 		{
 			other.gameObject.SetActive( false );
@@ -47,6 +45,10 @@ if( other.gameObject.CompareTag( "Respawn" ) ){
 
 	void OnCollisionEnter( Collision collision )
 	{
+
+
+
+
 		//float intensity = collision.relativeVelocit
 		float intensity = Mathf.Clamp01( collision.relativeVelocity.magnitude / 16 );
 
@@ -70,14 +72,23 @@ if( other.gameObject.CompareTag( "Respawn" ) ){
         Vector3 pos2 = new Vector3(pos.x,1.0f,pos.z);
 	    transform.position = pos2;
 	}
+void Update(){
+	Vector3 pos = GetComponent<Rigidbody>().position;
+        Vector3 pos2 = new Vector3(pos.x,0.0f,pos.z);
+	    transform.position = pos2;
+    if(transform.position.x <= -25.5 || transform.position.x >= 25.5 ||transform.position.z <= -25.5 || transform.position.z >= 25.5){
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 
+}
+
+}
 
 	void SetCountText()
 	{
-		countText.text = "Count: " + count.ToString();
+		countText.text = "";//Count: " + count.ToString();
 		if( count >= 12 )
 		{
-			winText.text = "You Win!";
+			//winText.text = "You Win!";
 		}
 	}
 }

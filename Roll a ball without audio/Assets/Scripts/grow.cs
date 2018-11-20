@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ using UnityEngine.SceneManagement;
 
 public class grow : MonoBehaviour {
 public bool Assigned = false;
@@ -20,14 +21,25 @@ public bool Assigned = false;
 	// Update is called once per frame
 	void Update () {
 		if(Assigned == true){
-            GetComponent<Transform>().localScale+=new Vector3(0.25f, 0.0f, 0.25f);
+            GetComponent<Transform>().localScale+=new Vector3(0.5f, 0.1f, 0.5f);
 
-        if(GetComponent<Transform>().localScale.x > 50){
+        if(GetComponent<Transform>().localScale.x > 100){
          GetComponent<Transform>().position=new Vector3(99.1f, 0.0f, 0.1f);
 
-             GetComponent<Transform>().localScale=new Vector3(1.0f, 1.0f, 1.0f);
-            Assigned = false;
+            GetComponent<Transform>().localScale=new Vector3(10.0f, 100.0f, 10.0f);
+           Assigned = false;
         }
 	    }
 	}
+	void OnTriggerEnter( Collider other ){		
+
+        if( other.gameObject.CompareTag( "Finish" ) ){
+            print("yea222h");
+            SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        }
+
+    }
+
+
+
 }

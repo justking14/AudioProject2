@@ -14,10 +14,10 @@ void Start()
     for (int i = 0; i < numberOfObjects; i++)
     {
         float angle = i * Mathf.PI * 2 / numberOfObjects;
-        Vector3 pos = new Vector3(Random.Range(-20.0f, 20.0f), 15.0f,Random.Range(-20.0f, 20.0f));
+        Vector3 pos = new Vector3(Random.Range(-20.0f, 20.0f), 50.0f,Random.Range(-20.0f, 20.0f));
         Instantiate(prefab, pos, Quaternion.identity);
     }
- InvokeRepeating("makeDrop", 0.0f, 1.0f);
+ InvokeRepeating("makeDrop", 0.0f, 0.2f);//1.0f);
 }
 	
 	
@@ -31,6 +31,6 @@ void Start()
 	}
 
 void makeDrop(){
-Vector3 pos = new Vector3(Random.Range(-10.0f, 10.0f), 5.0f,Random.Range(-10.0f, 10.0f));
+        Vector3 pos = new Vector3(Random.Range(-20.0f, 20.0f), 50.0f,Random.Range(-20.0f, 20.0f));
         Instantiate(prefab, pos, Quaternion.identity);
 }}

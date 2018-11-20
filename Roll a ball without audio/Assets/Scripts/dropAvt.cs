@@ -19,12 +19,17 @@ void Update () {
 
 
 }
-    
 
-void OnCollisionEnter (Collision col)
+void OnTriggerEnter( Collider col ){
+
+}
+
+   void OnCollisionEnter( Collision col )
+	//void OnTriggerEnter( Collider col )
+
     {
         bool spotFound = false;
-        if(col.gameObject.name == "Ground"){
+      //  if(col.gameObject.name == "Ground"){
             Vector3 pos = GetComponent<Rigidbody>().position;
             Vector3 pos2 = new Vector3(pos.x, 0.0f,pos.z);
 
@@ -40,7 +45,7 @@ void OnCollisionEnter (Collision col)
                     }
                 }   
             }
-        }
+        //}
     }
 
 
